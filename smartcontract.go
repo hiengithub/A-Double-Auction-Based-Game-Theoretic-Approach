@@ -402,7 +402,7 @@ func (s *SmartContract) startGame(APIstub shim.ChaincodeStubInterface,args []str
                     jsonResponse = append(jsonResponse,res)
 
                     playerAsBytes, _ := json.Marshal(user)
-                    err := APIstub.PutState(userList[idx].Identify, playerAsBytes)
+                    err := APIstub.PutState(userID, playerAsBytes)
                     if err != nil {
                         fmt.Println("err to PutState ",user.Identify," is ", err)        
                     }
@@ -420,7 +420,7 @@ func (s *SmartContract) startGame(APIstub shim.ChaincodeStubInterface,args []str
                     jsonResponse = append(jsonResponse,res)
 
                     playerAsBytes, _ := json.Marshal(user)
-                    err := APIstub.PutState(userList[idx].Identify, playerAsBytes)
+                    err := APIstub.PutState(userID, playerAsBytes)
                     if err != nil {
                         fmt.Println("err to PutState ",user.Identify," is ", err)        
                     }
@@ -438,7 +438,7 @@ func (s *SmartContract) startGame(APIstub shim.ChaincodeStubInterface,args []str
                     jsonResponse = append(jsonResponse,res)
 
                     playerAsBytes, _ := json.Marshal(user)
-                    err := APIstub.PutState(userList[idx].Identify, playerAsBytes)
+                    err := APIstub.PutState(userID, playerAsBytes)
                     if err != nil {
                         fmt.Println("err to PutState ",user.Identify," is ", err)        
                     }
@@ -455,7 +455,7 @@ func (s *SmartContract) startGame(APIstub shim.ChaincodeStubInterface,args []str
                     jsonResponse = append(jsonResponse,res)
 
                     playerAsBytes, _ := json.Marshal(user)
-                    err := APIstub.PutState(userList[idx].Identify, playerAsBytes)
+                    err := APIstub.PutState(userID, playerAsBytes)
                     if err != nil {
                         fmt.Println("err to PutState ",user.Identify," is ", err)        
                     }
