@@ -1,0 +1,34 @@
+---
+test:
+  name: simple
+  description: Excuting the benchmark for match buyers and sellers
+  workers:
+    type: local
+    number: 1
+  rounds:
+    
+  - label: INITLEDGER multiple users
+    txNumber: 1
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 500
+    callback: benchmarks/scenario/energy_trading/initLedgerInGame_muser.js
+  - label: STARTGAME multiple users 
+    txNumber: 1
+    rateControl:
+          type: fixed-rate
+          opts:
+            tps: 500
+    callback: benchmarks/scenario/energy_trading/startGame_muser.js
+
+monitor:
+  type:
+  - docker
+  docker:  
+    containers:
+    - all
+    charting:
+      polar:
+        metrics: [all]
+  interval: 1
