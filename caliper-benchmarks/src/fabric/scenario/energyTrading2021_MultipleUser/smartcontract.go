@@ -400,6 +400,12 @@ func (s *SmartContract) startGame(APIstub shim.ChaincodeStubInterface,args []str
                     clearQuantityStr := fmt.Sprintf("%f", user.ClearQuantity[t])
                     res := ResponseModel{UserID:userID,ClearQuantity:clearQuantityStr,ClearPrice:trackedObj.OptimalPrice,Role:"sell"}
                     jsonResponse = append(jsonResponse,res)
+
+                    playerAsBytes, _ := json.Marshal(user)
+                    err := APIstub.PutState(userList[idx].Identify, playerAsBytes)
+                    if err != nil {
+                        fmt.Println("err to PutState ",user.Identify," is ", err)        
+                    }
                 }
 
                 for idx, userID := range trackedObj.BuyWinners {
@@ -412,6 +418,12 @@ func (s *SmartContract) startGame(APIstub shim.ChaincodeStubInterface,args []str
                     clearQuantityStr := fmt.Sprintf("%f", user.ClearQuantity[t])
                     res := ResponseModel{UserID:userID,ClearQuantity:clearQuantityStr,ClearPrice:trackedObj.OptimalPrice,Role:"buy"}
                     jsonResponse = append(jsonResponse,res)
+
+                    playerAsBytes, _ := json.Marshal(user)
+                    err := APIstub.PutState(userList[idx].Identify, playerAsBytes)
+                    if err != nil {
+                        fmt.Println("err to PutState ",user.Identify," is ", err)        
+                    }
                 }
             } else {
                 for _, userID := range trackedObj.SellWinners {
@@ -424,6 +436,12 @@ func (s *SmartContract) startGame(APIstub shim.ChaincodeStubInterface,args []str
                     clearQuantityStr := fmt.Sprintf("%f", user.ClearQuantity[t])
                     res := ResponseModel{UserID:userID,ClearQuantity:clearQuantityStr,ClearPrice:trackedObj.OptimalPrice,Role:"sell"}
                     jsonResponse = append(jsonResponse,res)
+
+                    playerAsBytes, _ := json.Marshal(user)
+                    err := APIstub.PutState(userList[idx].Identify, playerAsBytes)
+                    if err != nil {
+                        fmt.Println("err to PutState ",user.Identify," is ", err)        
+                    }
                 }
 
                 for idx, userID := range trackedObj.BuyWinners {
@@ -435,6 +453,12 @@ func (s *SmartContract) startGame(APIstub shim.ChaincodeStubInterface,args []str
                     clearQuantityStr := fmt.Sprintf("%f", user.ClearQuantity[t])
                     res := ResponseModel{UserID:userID,ClearQuantity:clearQuantityStr,ClearPrice:trackedObj.OptimalPrice,Role:"buy"}
                     jsonResponse = append(jsonResponse,res)
+
+                    playerAsBytes, _ := json.Marshal(user)
+                    err := APIstub.PutState(userList[idx].Identify, playerAsBytes)
+                    if err != nil {
+                        fmt.Println("err to PutState ",user.Identify," is ", err)        
+                    }
                 }
             }
             // fmt.Println("jsonResponse",jsonResponse)
